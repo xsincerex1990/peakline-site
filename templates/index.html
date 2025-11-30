@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Peakline Cooling & Heating | Tampa Bay HVAC</title>
+  <title>{{ business_name }} | Tampa Bay HVAC</title>
   <style>
     body {
       margin: 0;
@@ -163,98 +163,40 @@
 <body id="top">
 
 <header>
-  <img src="logo.png" alt="Peakline Cooling & Heating Logo">
-  <h1>Peakline Cooling & Heating</h1>
-  <p>Fast, Clean & Honest HVAC Service in Tampa Bay</p>
-  <a class="btn" href="tel:2016284785">201-628-4785</a>
+  <img src="logo.png" alt="{{ business_name }} Logo">
+  <h1>{{ business_name }}</h1>
+  <p>{{ tagline }}</p>
+  <a class="btn" href="tel:{{ phone }}">{{ phone_display }}</a>
 </header>
 
 <section id="services">
   <h2>Services / Servicios</h2>
 
   <!-- We’ll show each service as a simple bullet plus some generic text -->
-  
+  {% for service in services %}
   <div class="service" data-service>
-    <div class="service-title">Full HVAC system installs</div>
+    <div class="service-title">{{ service }}</div>
     <div class="service-body">
       Professional, clean HVAC work done as if it were our own home. Call or text for details:
-      201-628-4785.
+      {{ phone_display }}.
     </div>
   </div>
-  
-  <div class="service" data-service>
-    <div class="service-title">Ductwork (new runs & replacements)</div>
-    <div class="service-body">
-      Professional, clean HVAC work done as if it were our own home. Call or text for details:
-      201-628-4785.
-    </div>
-  </div>
-  
-  <div class="service" data-service>
-    <div class="service-title">Mini-split installations</div>
-    <div class="service-body">
-      Professional, clean HVAC work done as if it were our own home. Call or text for details:
-      201-628-4785.
-    </div>
-  </div>
-  
-  <div class="service" data-service>
-    <div class="service-title">AC tune-ups & maintenance</div>
-    <div class="service-body">
-      Professional, clean HVAC work done as if it were our own home. Call or text for details:
-      201-628-4785.
-    </div>
-  </div>
-  
-  <div class="service" data-service>
-    <div class="service-title">Coil cleaning</div>
-    <div class="service-body">
-      Professional, clean HVAC work done as if it were our own home. Call or text for details:
-      201-628-4785.
-    </div>
-  </div>
-  
-  <div class="service" data-service>
-    <div class="service-title">Drain line clearing</div>
-    <div class="service-body">
-      Professional, clean HVAC work done as if it were our own home. Call or text for details:
-      201-628-4785.
-    </div>
-  </div>
-  
-  <div class="service" data-service>
-    <div class="service-title">Basic repairs (capacitors, contactors, float switches, etc.)</div>
-    <div class="service-body">
-      Professional, clean HVAC work done as if it were our own home. Call or text for details:
-      201-628-4785.
-    </div>
-  </div>
-  
+  {% endfor %}
 </section>
 
 <section id="areas">
   <h2>Service Areas / Zonas</h2>
   <ul>
-    
-      <li>Tampa</li>
-    
-      <li>Riverview</li>
-    
-      <li>Brandon</li>
-    
-      <li>Valrico</li>
-    
-      <li>Ruskin</li>
-    
-      <li>Apollo Beach</li>
-    
+    {% for area in areas %}
+      <li>{{ area }}</li>
+    {% endfor %}
   </ul>
 </section>
 
 <section id="about">
   <h2>About Peakline / Sobre Peakline</h2>
   <p>
-    Peakline Cooling & Heating provides clean, reliable HVAC work across Tampa Bay —
+    {{ business_name }} provides clean, reliable HVAC work across Tampa Bay —
     full system installs, ducts, mini-splits, tune-ups, coil cleaning and repairs.
     We respect your home, your time, and your budget.
   </p>
@@ -263,19 +205,19 @@
 <section id="contact">
   <h2>Contact / Contacto</h2>
   <p>Call or text any time:</p>
-  <p><a class="btn" href="tel:2016284785">201-628-4785</a></p>
-  <p>Email: <strong>peaklinehvac@gmail.com</strong></p>
+  <p><a class="btn" href="tel:{{ phone }}">{{ phone_display }}</a></p>
+  <p>Email: <strong>{{ email }}</strong></p>
 </section>
 
 <footer>
-  Peakline Cooling & Heating — Tampa Bay, FL<br>
-  <a href="tel:2016284785">201-628-4785</a><br><br>
+  {{ business_name }} — Tampa Bay, FL<br>
+  <a href="tel:{{ phone }}">{{ phone_display }}</a><br><br>
   <a href="#top" style="color:#61b7ff; text-decoration:none;">↑ Back to top</a>
 </footer>
 
 <!-- Sticky mobile call bar -->
 <div class="call-bar" id="callBar">
-  <a href="tel:2016284785">📞 Llama / Call: 201-628-4785</a>
+  <a href="tel:{{ phone }}">📞 Llama / Call: {{ phone_display }}</a>
 </div>
 
 <script>
@@ -313,3 +255,4 @@
 
 </body>
 </html>
+
