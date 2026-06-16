@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peakline Cooling & Heating | Tampa Bay HVAC</title>
+  <style>
+    :root {
+      --bg-dark: #030A14;
+      --bg-darker: #01060c;
+      --card-bg: #0b1724;
+      --card-border: #13314c;
+      --accent-warm: #ffb703;
+      --accent-cool: #61b7ff;
+      --text-main: #e8e8e8;
+      --text-muted: #d0d0d0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text-main);
+      line-height: 1.6;
+      background: var(--bg-dark);
+      scroll-behavior: smooth;
+    }
+
+    /* Top nav */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(3, 10, 20, 0.95);
+      border-bottom: 1px solid #091525;
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+    }
+
+    .top-bar-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .top-bar-logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .top-bar-logo span {
+      font-size: 14px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .top-bar-nav {
+      display: flex;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .top-bar-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 4px 6px;
+    }
+
+    .top-bar-nav a:hover {
+      color: var(--accent-warm);
+    }
+
+    .top-bar-phone {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .top-bar-phone {
+        display: inline-block;
+        font-size: 14px;
+        color: var(--accent-warm);
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    header img {
+      width: 260px;          /* logo size */
+      max-width: 80%;
+      margin-bottom: 25px;
+    }
+
+    header h1 {
+      font-size: 42px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 20px;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent-warm);
+      color: #000;
+      padding: 14px 26px;
+      margin-top: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      font-size: 18px;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: var(--accent-cool);
+      margin-bottom: 15px;
+      font-size: 30px;
+      border-left: 5px solid var(--accent-warm);
+      padding-left: 12px;
+    }
+
+    ul {
+      padding-left: 0;
+    }
+
+    ul li {
+      background: var(--card-bg);
+      padding: 14px 16px;
+      margin: 10px 0;
+      border-radius: 8px;
+      list-style: none;
+      border: 1px solid var(--card-border);
+      color: #d7d7d7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px 80px;
+      background: var(--bg-darker);
+      color: #9ecaf7;
+      margin-top: 40px;
+      font-size: 15px;
+    }
+
+    footer a {
+      color: var(--accent-warm);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Sticky mobile call bar */
+    .call-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: -70px; /* hidden by default */
+      background: linear-gradient(90deg, #ffb703, #ff7b00);
+      text-align: center;
+      padding: 12px 10px;
+      transition: bottom 0.3s ease;
+      z-index: 999;
+    }
+
+    .call-bar a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .call-bar {
+        display: none; /* Only on mobile/tablet */
+      }
+    }
+
+    /* Simple scroll-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- Top nav bar -->
+  <div class="top-bar">
+    <div class="top-bar-logo">
+      <img src="logo.png" alt="Peakline Logo">
+      <span>Peakline Cooling & Heating</span>
+    </div>
+    <div class="top-bar-nav">
+      <a href="#services">Services</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="top-bar-phone" href="tel:2016284785">📞 201-628-4785</a>
+  </div>
+
+  <header class="fade-in">
+    <img src="logo.png" alt="Peakline HVAC Logo">
+    <h1>Peakline Cooling & Heating</h1>
+    <p>Fast, Clean & Honest HVAC Service in Tampa Bay</p>
+    <a class="btn" href="tel:2016284785">Call/Text: 201-628-4785</a>
+  </header>
+
+  <section id="services" class="fade-in">
+    <h2>Services</h2>
+    <ul>
+      <li><strong>Full HVAC System Installs</strong> — Indoor + outdoor units, done clean and the right way.</li>
+      <li><strong>Ductwork</strong> — New duct runs, replacements, sealing, and airflow improvements.</li>
+      <li><strong>Mini-Split Installation</strong> — Single & multi-zone ductless systems.</li>
+      <li><strong>AC Tune-Ups & Maintenance</strong> — Full system check, drain line flush, coil rinse.</li>
+      <li><strong>Coil Cleaning</strong> — Deep clean for better cooling & airflow.</li>
+      <li><strong>Basic Repairs</strong> — Capacitors, contactors, float switches, thermostats, and more.</li>
+    </ul>
+  </section>
+
+  <section id="areas" class="fade-in">
+    <h2>Service Areas</h2>
+    <ul>
+      <li>Tampa</li>
+      <li>Riverview</li>
+      <li>Brandon</li>
+      <li>Valrico</li>
+      <li>Ruskin</li>
+      <li>Apollo Beach</li>
+    </ul>
+  </section>
+
+  <section id="about" class="fade-in">
+    <h2>About Peakline</h2>
+    <p>
+      Peakline Cooling & Heating provides clean, reliable HVAC work across Tampa Bay.
+      From full installs and ductwork to mini-splits, tune-ups, coil cleaning, and repairs —
+      every job is treated like it’s our own home.
+    </p>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>Contact</h2>
+    <p>Call or text any time:</p>
+    <p><a class="btn" href="tel:2016284785">201-628-4785</a></p>
+    <p>Email: <strong>peaklinehvac@gmail.com</strong></p>
+  </section>
+
+  <footer>
+    Peakline Cooling & Heating — Tampa Bay, FL<br>
+    <a href="tel:2016284785">201-628-4785</a><br><br>
+    <a href="#top" style="color:#61b7ff; text-decoration:none;">↑ Back to top</a>
+  </footer>
+
+  <!-- Sticky mobile call bar -->
+  <div class="call-bar" id="callBar">
+    <a href="tel:2016284785">📞 Llama / Call: 201-628-4785</a>
+  </div>
+
+  <script>
+    // Sticky call bar on scroll (mobile)
+    document.addEventListener('scroll', function () {
+      var callBar = document.getElementById('callBar');
+      if (!callBar) return;
+
+      if (window.scrollY > 150) {
+        callBar.style.bottom = '0';
+      } else {
+        callBar.style.bottom = '-70px';
+      }
+    });
+
+    // Simple fade-in on scroll using IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peakline Cooling & Heating | Tampa Bay HVAC</title>
+  <style>
+    :root {
+      --bg-dark: #030A14;
+      --bg-darker: #01060c;
+      --card-bg: #0b1724;
+      --card-border: #13314c;
+      --accent-warm: #ffb703;
+      --accent-cool: #61b7ff;
+      --text-main: #e8e8e8;
+      --text-muted: #d0d0d0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text-main);
+      line-height: 1.6;
+      background: var(--bg-dark);
+      scroll-behavior: smooth;
+    }
+
+    /* Top nav */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(3, 10, 20, 0.95);
+      border-bottom: 1px solid #091525;
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+    }
+
+    .top-bar-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .top-bar-logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .top-bar-logo span {
+      font-size: 14px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .top-bar-nav {
+      display: flex;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .top-bar-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 4px 6px;
+    }
+
+    .top-bar-nav a:hover {
+      color: var(--accent-warm);
+    }
+
+    .top-bar-phone {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .top-bar-phone {
+        display: inline-block;
+        font-size: 14px;
+        color: var(--accent-warm);
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    header img {
+      width: 260px;          /* logo size */
+      max-width: 80%;
+      margin-bottom: 25px;
+    }
+
+    header h1 {
+      font-size: 42px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 20px;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent-warm);
+      color: #000;
+      padding: 14px 26px;
+      margin-top: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      font-size: 18px;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: var(--accent-cool);
+      margin-bottom: 15px;
+      font-size: 30px;
+      border-left: 5px solid var(--accent-warm);
+      padding-left: 12px;
+    }
+
+    ul {
+      padding-left: 0;
+    }
+
+    ul li {
+      background: var(--card-bg);
+      padding: 14px 16px;
+      margin: 10px 0;
+      border-radius: 8px;
+      list-style: none;
+      border: 1px solid var(--card-border);
+      color: #d7d7d7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px 80px;
+      background: var(--bg-darker);
+      color: #9ecaf7;
+      margin-top: 40px;
+      font-size: 15px;
+    }
+
+    footer a {
+      color: var(--accent-warm);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Sticky mobile call bar */
+    .call-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: -70px; /* hidden by default */
+      background: linear-gradient(90deg, #ffb703, #ff7b00);
+      text-align: center;
+      padding: 12px 10px;
+      transition: bottom 0.3s ease;
+      z-index: 999;
+    }
+
+    .call-bar a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .call-bar {
+        display: none; /* Only on mobile/tablet */
+      }
+    }
+
+    /* Simple scroll-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- Top nav bar -->
+  <div class="top-bar">
+    <div class="top-bar-logo">
+      <img src="logo.png" alt="Peakline Logo">
+      <span>Peakline Cooling & Heating</span>
+    </div>
+    <div class="top-bar-nav">
+      <a href="#services">Services</a>
+      <a href="#areas">Services Areas</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="top-bar-phone" href="tel:2016284785">📞 201-628-4785</a>
+  </div>
+
+  <header class="fade-in">
+    <img src="logo.png" alt="Peakline HVAC Logo">
+    <h1>Peakline Cooling & Heating</h1>
+    <p>Fast, Clean & Honest HVAC Service in Tampa Bay</p>
+    <a class="btn" href="tel:2016284785">Call/Text: 201-628-4785</a>
+  </header>
+
+  <section id="services" class="fade-in">
+    <h2>Services</h2>
+    <ul>
+      <li><strong>Full HVAC System Installs</strong> — Indoor + outdoor units, done clean and the right way.</li>
+      <li><strong>Ductwork</strong> — New duct runs, replacements, sealing, and airflow improvements.</li>
+      <li><strong>Mini-Split Installation</strong> — Single & multi-zone ductless systems.</li>
+      <li><strong>AC Tune-Ups & Maintenance</strong> — Full system check, drain line flush, coil rinse.</li>
+      <li><strong>Coil Cleaning</strong> — Deep clean for better cooling & airflow.</li>
+      <li><strong>Basic Repairs</strong> — Capacitors, contactors, float switches, thermostats, and more.</li>
+    </ul>
+  </section>
+
+  <section id="areas" class="fade-in">
+    <h2>Service Areas</h2>
+    <ul>
+      <li>Tampa</li>
+      <li>Riverview</li>
+      <li>Brandon</li>
+      <li>Valrico</li>
+      <li>Ruskin</li>
+      <li>Apollo Beach</li>
+    </ul>
+  </section>
+
+  <section id="about" class="fade-in">
+    <h2>About Peakline</h2>
+    <p>
+      Peakline Cooling & Heating provides clean, reliable HVAC work across Tampa Bay.
+      From full installs and ductwork to mini-splits, tune-ups, coil cleaning, and repairs —
+      every job is treated like it’s our own home.
+    </p>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>Contact</h2>
+    <p>Call or text any time:</p>
+    <p><a class="btn" href="tel:2016284785">201-628-4785</a></p>
+    <p>Email: <strong>peaklinehvac@gmail.com</strong></p>
+  </section>
+
+  <footer>
+    Peakline Cooling & Heating — Tampa Bay, FL<br>
+    <a href="tel:2016284785">201-628-4785</a><br><br>
+    <a href="#top" style="color:#61b7ff; text-decoration:none;">↑ Back to top</a>
+  </footer>
+
+  <!-- Sticky mobile call bar -->
+  <div class="call-bar" id="callBar">
+    <a href="tel:2016284785">📞 Llama / Call: 201-628-4785</a>
+  </div>
+
+  <script>
+    // Sticky call bar on scroll (mobile)
+    document.addEventListener('scroll', function () {
+      var callBar = document.getElementById('callBar');
+      if (!callBar) return;
+
+      if (window.scrollY > 150) {
+        callBar.style.bottom = '0';
+      } else {
+        callBar.style.bottom = '-70px';
+      }
+    });
+
+    // Simple fade-in on scroll using IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
+
